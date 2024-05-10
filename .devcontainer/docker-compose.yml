@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: dockerfile
+    volumes:
+      - ../..:/workspaces:cached
+    networks:
+      - app-network
+    command: sleep infinity
+    
+volumes:
+  data:
+
+networks: 
+  app-network:
+    driver: bridge
